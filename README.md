@@ -3,8 +3,6 @@
 
 An ESP32 based customer pager with OLED display, vibration, LED lights and charging function.
 
-[TOC]
-
 ## Client
 
 The client is the hardware that the customer gets. 
