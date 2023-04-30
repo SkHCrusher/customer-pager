@@ -12,6 +12,11 @@ The client is the hardware that the customer gets.
 As soon as it is his turn, the client vibrates and flashes its LEDs.
 Once the customer brings the client back to the issuance, this can stop the alarm and give him in exchange, for example, the goods.
 
+| ![front image](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/client/images/front.JPEG) | ![top image](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/client/images/top.JPEG) | ![bottom image](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/client/images/bottom.JPEG) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+
+
 ### Hardware
 
 #### Componets
