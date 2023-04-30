@@ -35,6 +35,22 @@ Below I list all the components I needed to build the client. The store links ar
 
 In addition to these components, cables, soldering accessories, cable ties, etc. are needed, which I have not listed here.
 
+#### Wiring
+
+The wiring of the components is done as shown in this diagram:
+
+![wiring diagram](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/client/images/wiring.jpg)
+
+Here the pinout again in detail:
+
+| Pin  | Name      |
+| ---- | --------- |
+| 5    | LEDs      |
+| 17   | Vibration |
+| 18   | Button    |
+| 19   | OLED SDA  |
+| 23   | OLED SCL  |
+
 #### 3D printing files
 
 coming soon
