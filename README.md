@@ -12,7 +12,7 @@ He brings the device back to the staff. The staff exchanges the device with the 
 
 ## Features
 
-This system consists of a server (station for the employees) and several clients/pagers for the customers.
+This system consists of a administration station(station for the employees) and several clients/pagers for the customers.
 
 - :pager: Based on an ESP32
 - :signal_strength: Communication via the existing Wifi
@@ -26,7 +26,7 @@ This system consists of a server (station for the employees) and several clients
 
 ### Configure Arduino IDE
 
-The client and also the server are based on the LOLIN32 Lite and need the right package for the Arduino IDE.
+The client and also the administration station are based on the LOLIN32 Lite and need the right package for the Arduino IDE.
 
 Install (if not already done) via the Arduino Board Manager the "esp32" package from "Espressif Systems".
 
@@ -37,7 +37,7 @@ After the package has been installed, you will find the appropriate board under 
 You can find all the necessary 3D printing files on the following page for free download:
 https://www.printables.com/model/467464-customer-pager
 
-Here you will find all print data for the client, server and the charging station including Fusion360 original file for any adjustments.
+Here you will find all print data for the client, administration station and the charging station including Fusion360 original file for any adjustments.
 
 ## Client
 
@@ -69,6 +69,8 @@ Below I list all the components I needed to build the client. The store links ar
 | Pogo Pin Connector                  | 2     | https://www.amazon.de/dp/B07FPCPX8X |
 | Copper rivets                       | 2     | https://www.amazon.de/dp/B018HMGM54 |
 | 10k resistor                        | 1     | https://www.amazon.de/dp/B08QRJZ82J |
+| Ruthex M2 thread insert             | 4     | https://www.amazon.de/dp/B088QJG676 |
+| Magnets 8 x 2 mm                    | 4     | https://www.amazon.de/dp/B0BLCFSZKZ |
 
 In addition to these components, cables, soldering accessories, cable ties, etc. are needed, which I have not listed here.
 
@@ -125,7 +127,7 @@ The following endpoints are provided:
 | GET /alarm-start | Starts the alarm for this pager | http://192.168.0.2:8080/alarm-start |
 | GET /alarm-stop  | Stops the alarm for this pager  | http://192.168.0.2:8080/alarm-stop  |
 
-## Server
+## Administration Station
 
 coming soon
 
