@@ -74,7 +74,7 @@ unsigned long lastVibrationTime = 0;
 // Wifi
 WiFiManager wm;
 int wifiConfigurationPortalTimeout = 60;
-char wifiName[32] = "CustomerPagerTest";
+char wifiName[32] = "CustomerPager";
 char wifiPassword[32] = "password";
 char tempPagerNumber[3];
 WiFiManagerParameter custom_pager_number("pager_number", "Pager Number", "", 3);
@@ -92,7 +92,6 @@ void setup() {
   loadConfig();
 
   // Display - Gelb - Grün
-  
   Wire.begin(23, 19);
   if(!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
     Serial.println(F("SSD1306 allocation failed"));
