@@ -32,6 +32,13 @@ Install (if not already done) via the Arduino Board Manager the "esp32" package 
 
 After the package has been installed, you will find the appropriate board under "WEMOS LOLIN32 Lite".
 
+### 3D printing files
+
+You can find all the necessary 3D printing files on the following page for free download:
+https://www.printables.com/model/467464-customer-pager
+
+Here you will find all print data for the client, server and the charging station including Fusion360 original file for any adjustments.
+
 ## Client
 
 The client is the hardware that the customer gets. 
@@ -81,10 +88,6 @@ Here the pinout again in detail:
 | 18   | Button    |
 | 19   | OLED SDA  |
 | 23   | OLED SCL  |
-
-#### 3D printing files
-
-coming soon
 
 ### Software
 
