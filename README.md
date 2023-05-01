@@ -14,13 +14,13 @@ He brings the device back to the staff. The staff exchanges the device with the 
 
 This system consists of a server (station for the employees) and several clients/pagers for the customers.
 
-:pager: Based on an ESP32
-:signal_strength: Communication via the existing Wifi
-:high_brightness: OLED display with 128x32 pixels
-:battery: Integrated battery incl. charging function via base
-:flashlight: Attention through flashing LEDs and vibration
-:pencil2: Easy configuration via WifiManager
-:satellite: REST API for easy integration into your own system
+- :pager: Based on an ESP32
+- :signal_strength: Communication via the existing Wifi
+- :high_brightness: OLED display with 128x32 pixels
+- :battery: Integrated battery incl. charging function via base
+- :flashlight: Attention through flashing LEDs and vibration
+- :pencil2: Easy configuration via WifiManager
+- :satellite: REST API for easy integration into your own system
 
 ## General
 
@@ -102,7 +102,7 @@ The following libraries must additionally be installed. They can all be installe
 
 #### Installation
 
-Please note that you need the package for the LOLIN32 board first. The procedure is described under "[General > Configure Arduino IDE](###-configure-arduino-ide)".
+Please note that you need the package for the LOLIN32 board first. The procedure is described under "[General > Configure Arduino IDE](#configure-arduino-ide)".
 
 Connect the LOLIN32 Lite via USB to your computer and select the correct COM port and as device "WEMOS LOLIN32 Lite".
 Then upload the source code directly via your Arduino Librabry using "Sketch > Upload".
