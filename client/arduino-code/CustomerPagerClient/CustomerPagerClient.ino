@@ -1,3 +1,14 @@
+/**
+ * Customer pager - Client
+ * 
+ * An ESP32 based customer pager with OLED display, 
+ * vibration, LED lights and charging function.
+ * 
+ * @author Tobias Stewen
+ * @version 1.0.0
+ * @license MIT
+ * @url https://github.com/SkHCrusher/customer-pager
+ */
 #include <EasyButton.h>
 #include <SPI.h>
 #include <Wire.h>
@@ -8,8 +19,12 @@
 
 // Generell
 bool pagerActive = false;
-int pagerNumber;
 unsigned long currentTime = 0; 
+
+// Number
+int pagerNumber;
+unsigned long currentIdleMoveTime = 0; 
+unsigned int idleMoveTime = 4000;
 
 // Display
 #define SCREEN_WIDTH 128
@@ -52,7 +67,7 @@ const unsigned char* epd_bitmap_allArray[2] = {
 	epd_bitmap_AlarmOn_26x26
 };
 
-// Button - Blau
+// Button - Blue
 const int buttonPin = 18; 
 int buttonWifiManagerPresses = 3;
 int buttonWifiManagerTimeout = 1000;
@@ -65,7 +80,7 @@ const int ledSwitchTime = 200;
 bool currentLedState = false; 
 unsigned long lastLedTime = 0; 
 
-// Vibration - braun
+// Vibration - Brown
 const int vibrationPin = 17;
 const int vibrationDelay = 800;
 bool currentVibrationState = false; 
@@ -88,10 +103,15 @@ Preferences preferences;
 void setup() {
   Serial.begin(115200);
 
+  // Default values
+  currentTime = millis();
+  currentIdleMoveTime = currentTime;
+  pagerActive = false;
+
   // Config
   loadConfig();
 
-  // Display - Gelb - Grün
+  // Display - Yellow/Green
   Wire.begin(23, 19);
   if(!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
     Serial.println(F("SSD1306 allocation failed"));
@@ -167,18 +187,10 @@ void wifiSetup() {
 
   // Start new Webserver
   Serial.println("Custom Webserver");
-  //wm.startWebPortal();
   
   server.on("/alarm-start", apiAlarmStart);
   server.on("/alarm-stop", apiAlarmStop);
-
   server.begin();
-}
-
-void bindServerCallback(){
-  Serial.println("Routen eingerichtet");
-  //wm.server->on("/alarm-start", apiAlarmStart);
-  //wm.server->on("/alarm-stop", apiAlarmStop);
 }
 
 void saveWifiParamsCallback () {
@@ -216,6 +228,8 @@ void activateAlarm() {
 void deactivateAlarm() {
   pagerActive = false;
   currentVibrationState = false;
+  currentIdleMoveTime = 0;
+  currentIdleMoveTime = currentTime;
 }
 
 void displayWifiConnection() {
@@ -240,7 +254,30 @@ void displayLoop() {
   display.setTextColor(SSD1306_WHITE);
 
   // Pager number
-  display.setCursor(0, 0);
+  int numberPosX = 0;
+  int maxPosX = 128 - ((1 + floor(log10(pagerNumber))) * 24);
+
+  // Animate number while idle to prevent burn-in
+  if (!pagerActive) {
+    unsigned int timeDiff = currentTime - currentIdleMoveTime;
+
+    // Reset if to old
+    if (timeDiff > idleMoveTime) {
+      currentIdleMoveTime = currentTime;
+    }
+
+    // Check direction
+    if (timeDiff <= (idleMoveTime / 2)) {
+      // Right
+      numberPosX = map(timeDiff, 0, (idleMoveTime / 2), 0, maxPosX);
+    } else {
+      // Left
+      numberPosX = map(timeDiff, ((idleMoveTime / 2) + 1), idleMoveTime, maxPosX, 0);
+    }
+  }
+
+  // Print number on correct position
+  display.setCursor(numberPosX, 0);
   display.println(pagerNumber);
 
   // Alarm Icon
