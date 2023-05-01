@@ -39,7 +39,7 @@ The client is the hardware that the customer gets.
 As soon as it is his turn, the client vibrates and flashes its LEDs.
 Once the customer brings the client back to the issuance, this can stop the alarm and give him in exchange, for example, the goods.
 
-| ![front image](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/client/images/front.JPEG) | ![top image](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/client/images/top.JPEG) | ![bottom image](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/client/images/bottom.JPEG) |
+| ![front image](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/client/images/front.jpeg) | ![top image](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/client/images/top.jpeg) | ![bottom image](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/client/images/bottom.jpeg) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 
@@ -69,7 +69,8 @@ In addition to these components, cables, soldering accessories, cable ties, etc.
 
 The wiring of the components is done as shown in this diagram:
 
-![wiring diagram](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/client/images/wiring.jpg)
+| ![wiring diagram](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/client/images/wiring.jpg) | ![front image](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/client/images/wiring_detail.jpeg) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 Here the pinout again in detail:
 
@@ -107,11 +108,19 @@ Please note that you need the package for the LOLIN32 board first. The procedure
 Connect the LOLIN32 Lite via USB to your computer and select the correct COM port and as device "WEMOS LOLIN32 Lite".
 Then upload the source code directly via your Arduino Librabry using "Sketch > Upload".
 
-
-
 ### How to use
 
+After starting the WifiManager automatically opens a WLAN network with the name "CustomerPager".
+Connect to this and set up the WLAN via the configuration menu that appears and finally the pager number under "Setup".
 
+After the Wifi is set up, the client provides a REST API for the required functions. The port of the REST interface is 8080.
+
+The following endpoints are provided:
+
+| Endpunkt         | Beschreibung                    | Beispiel                            |
+| ---------------- | ------------------------------- | ----------------------------------- |
+| GET /alarm-start | Starts the alarm for this pager | http://192.168.0.2:8080/alarm-start |
+| GET /alarm-stop  | Stops the alarm for this pager  | http://192.168.0.2:8080/alarm-stop  |
 
 ## Server
 
