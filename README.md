@@ -91,6 +91,8 @@ Here the pinout again in detail:
 | 19   | OLED SDA  |
 | 23   | OLED SCL  |
 
+**Important:** Please only pay attention to the correct polarity of the magnets and the current!
+
 ### Software
 
 Download the folder under "client/arduino-code/" locally and open it in your Arduino IDE.
@@ -127,11 +129,31 @@ The following endpoints are provided:
 | GET /alarm-start | Starts the alarm for this pager | http://192.168.0.2:8080/alarm-start |
 | GET /alarm-stop  | Stops the alarm for this pager  | http://192.168.0.2:8080/alarm-stop  |
 
-## Administration Station
-
-coming soon
-
 ## Charging station
+
+The charging station focuses on exactly one feature - charging the pagers. No other gimmicks  - pure focus on charging.
+
+| ![top image of the charging station](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/charging-station/images/top.jpeg) | ![bottom image of the charging station](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/charging-station/images/bottom.jpeg) | ![front image of the charging station with pager](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/charging-station/images/front_with_pager.jpeg) | ![back image of the cgarging station with pager](https://raw.githubusercontent.com/SkHCrusher/customer-pager/main/charging-station/images/back_with_pager.jpeg) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+### Hardware
+
+#### Componets
+
+Below I list all the components I needed to build the charging station. The store links are only for reference. All goods can also be bought at any other dealer:
+
+| Name               | Menge | Shop-Link                           |
+| ------------------ | ----- | ----------------------------------- |
+| Pogo Pin Connector | 2     | https://www.amazon.de/dp/B07FPCPX8X |
+| Magnets 8 x 2 mm   | 2     | https://www.amazon.de/dp/B0BLCFSZKZ |
+
+#### Wiring
+
+The charging station is quite simple. Here you only have to solder the cables of the power supply to one pogo pin each.
+
+**Important:** Please only pay attention to the correct polarity of the magnets and the current!
+
+## Administration Station
 
 coming soon
 
